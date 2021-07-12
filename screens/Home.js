@@ -1,8 +1,12 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Button, Text, View } from "react-native";
 
-export default () => (
-  <View>
-    <Text>Home</Text>
-  </View>
-);
+export default ({ navigation }) => {
+  console.log(navigation);
+  return (
+    <View>
+      <Text>Home</Text>
+      <Button title="상세보기" onPress={() => navigation.navigate("Detail")} />
+    </View>
+  );
+};

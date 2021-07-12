@@ -13,7 +13,8 @@ const getHeaderName = (route) =>
 
 export default ({ navigation, route }) => {
   useLayoutEffect(() => {
-    navigation.setOptions({ title: getHeaderName(route) });
+    const name = getHeaderName(route);
+    navigation.setOptions({ title: name });
   }, [route]);
   return (
     <Tabs.Navigator>

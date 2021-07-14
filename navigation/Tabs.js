@@ -5,7 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Movies from "../screens/Movies";
 import Tv from "../screens/Tv";
 import Search from "../screens/Search";
-import Favorite from "../screens/Favorite";
+import Discover from "../screens/Discover";
 import { Platform } from "react-native";
 
 const Tabs = createBottomTabNavigator();
@@ -34,7 +34,7 @@ export default ({ navigation, route }) => {
             case "Search":
               iconName += "search";
               break;
-            case "Favorite":
+            case "Discover":
               iconName += "heart";
               break;
           }
@@ -55,7 +55,7 @@ export default ({ navigation, route }) => {
       <Tabs.Screen name="Movies" component={Movies} />
       <Tabs.Screen name="Tv" component={Tv} />
       <Tabs.Screen name="Search" component={Search} />
-      <Tabs.Screen name="Favorite" component={Favorite} />
+      <Tabs.Screen name="Discover" component={Discover} />
     </Tabs.Navigator>
   );
 };

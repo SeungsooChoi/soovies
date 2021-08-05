@@ -45,7 +45,12 @@ export default ({ loading, nowPlaying, popular }) => (
         </SlideContainer>
         <Container>
           <Title title={"Popular Movie"} />
-          <ScrollView horizontal>
+          <ScrollView
+            style={{ marginTop: 10 }}
+            contentContainerStyle={{ paddingLeft: 14 }}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+          >
             {popular.map((movie) => (
               <Vertical
                 key={movie.id}

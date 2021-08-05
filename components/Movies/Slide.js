@@ -5,6 +5,7 @@ import { apiImage } from "../../api";
 import Poster from "../Poster";
 import { TouchableOpacity } from "react-native";
 import Votes from "../Votes";
+import { trimText } from "../../utils";
 
 const Container = styled.View`
   width: 100%;
@@ -57,13 +58,11 @@ const Slide = ({ id, title, backgroundImage, votes, overview, poster }) => (
   <Container>
     <BG source={{ uri: apiImage(backgroundImage) }} />
     <Content>
-      <Poster url={apiImage(poster)} />
+      <Poster url={poster} />
       <Data>
-        <Title>{title.length > 20 ? `${title.slice(0, 20)}...` : title}</Title>
+        <Title>{trimText(title, 20)}</Title>
         <Votes votes={votes} />
-        <Overview>
-          {overview.length > 100 ? `${overview.slice(0, 100)}...` : overview}
-        </Overview>
+        <Overview>{trimText(overview, 100)}</Overview>
         <TouchableOpacity>
           <Button>
             <ButtonText>View Details</ButtonText>
@@ -80,6 +79,7 @@ Slide.propTypes = {
   backgroundImage: PropTypes.string.isRequired,
   votes: PropTypes.number.isRequired,
   overview: PropTypes.string.isRequired,
+  poster: PropTypes.string.isRequired,
 };
 
 export default Slide;

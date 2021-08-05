@@ -4,6 +4,7 @@ import Swiper from "react-native-web-swiper";
 import { ActivityIndicator, Dimensions, ScrollView } from "react-native";
 import Slide from "../../components/Movies/Slide";
 import Title from "../../components/Title";
+import Vertical from "../../components/Vertical";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
@@ -15,7 +16,7 @@ const SlideContainer = styled.View`
 
 const Container = styled.View``;
 
-export default ({ loading, nowPlaying }) => (
+export default ({ loading, nowPlaying, popular }) => (
   <ScrollView
     style={{ backgroundColor: "black" }}
     contentContainerStyle={{
@@ -36,7 +37,7 @@ export default ({ loading, nowPlaying }) => (
                 title={movie.original_title}
                 overview={movie.overview}
                 votes={movie.vote_average}
-                backgroundImage={movie.backdrop_path}
+                backgroundImage={movie.backdrop_path || ""}
                 poster={movie.poster_path}
               />
             ))}
@@ -44,6 +45,16 @@ export default ({ loading, nowPlaying }) => (
         </SlideContainer>
         <Container>
           <Title title={"Popular Movie"} />
+          <ScrollView horizontal>
+            {popular.map((movie) => (
+              <Vertical
+                key={movie.id}
+                poster={movie.poster_path}
+                title={movie.original_title}
+                votes={movie.vote_average}
+              />
+            ))}
+          </ScrollView>
         </Container>
       </>
     )}

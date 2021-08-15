@@ -32,7 +32,7 @@ export default ({ loading, nowPlaying, popular, upcoming }) => (
               title={movie.original_title}
               overview={movie.overview}
               votes={movie.vote_average}
-              backgroundImage={movie.backdrop_path || ""}
+              backgroundImage={movie.backdrop_path}
               poster={movie.poster_path}
             />
           ))}

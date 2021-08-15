@@ -18,7 +18,7 @@ export default ({ loading, popular, topRated, today }) => (
           <Vertical
             id={show.id}
             key={show.id}
-            poster={show.poster_path || ""}
+            poster={show.poster_path}
             title={show.name}
             votes={show.vote_average}
           />
@@ -29,7 +29,7 @@ export default ({ loading, popular, topRated, today }) => (
           <Vertical
             id={show.id}
             key={show.id}
-            poster={show.poster_path || ""}
+            poster={show.poster_path}
             title={show.name}
             votes={show.vote_average}
           />
@@ -41,7 +41,7 @@ export default ({ loading, popular, topRated, today }) => (
             key={show.id}
             id={show.id}
             title={show.name}
-            poster={show.poster_path || ""}
+            poster={show.poster_path}
             overview={show.overview}
           />
         ))}

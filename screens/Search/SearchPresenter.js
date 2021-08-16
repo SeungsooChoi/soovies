@@ -1,17 +1,14 @@
 import React from "react";
 import styled from "styled-components/native";
 import HorizontalSlider from "../../components/HorizontalSlider";
+import ScrollContainer from "../../components/ScrollContainer";
 import Input from "../../components/Search/Input";
 import Vertical from "../../components/Vertical";
 
-const Container = styled.ScrollView`
-  background-color: black;
-`;
-
-const Text = styled.Text``;
-
 export default ({ movies, shows, onChange, onSubmit, keyword }) => (
-  <Container
+  <ScrollContainer
+    loading={false} // search만 따로 로딩화면으로 가리고싶지 않아서 false.
+    refreshFn={onSubmit} // 새로고침했을때 onSubmit
     contentContainerStyle={{
       paddingTop: 10,
     }}
@@ -48,5 +45,5 @@ export default ({ movies, shows, onChange, onSubmit, keyword }) => (
         ))}
       </HorizontalSlider>
     )}
-  </Container>
+  </ScrollContainer>
 );

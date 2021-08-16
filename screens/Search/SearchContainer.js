@@ -24,7 +24,6 @@ export default () => {
       moviesError,
       showsError,
     });
-    console.log(results);
   };
   return (
     <SearchPresenter
